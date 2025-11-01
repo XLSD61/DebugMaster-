@@ -1,4 +1,3 @@
-===============================
 📜 DebugMaster Usage Examples
 ===============================
 
@@ -13,7 +12,6 @@ Output:
 [WARNING] Low memory detected (Yellow, Italic)
 [ERROR] Critical failure (Red, BoldItalic)
 
-
 Simple Logs (no style)
 -----------------------
 DebugMaster.Log("Plain log message");
@@ -25,14 +23,12 @@ Output:
 [WARNING] Simple warning
 [ERROR] Simple error
 
-
 Tagged Log
 -----------
 DebugMaster.Log(LogTag.Combat, "Hit landed", LogStyle.Bold);
 
 Output:
 [COMBAT] Hit landed (Bold)
-
 
 Multiple String Tags
 ---------------------
@@ -41,7 +37,6 @@ DebugMaster.Log("[AI]", "#Navigation", "Target acquired");
 Output:
 [AI][#Navigation] Target acquired
 
-
 Override Color by Tag
 ----------------------
 DebugMaster.Log(LogTag.UI, LogColor.Yellow, "Button clicked");
@@ -49,14 +44,12 @@ DebugMaster.Log(LogTag.UI, LogColor.Yellow, "Button clicked");
 Output:
 [UI] Button clicked (Yellow)
 
-
 Mixed Usage
 ------------
 DebugMaster.Log(LogTag.Network, "@Backend", "Auth success in", 123, "ms");
 
 Output:
 [NETWORK@Backend] Auth success in 123 ms
-
 
 Warnings & Errors with Tags
 ----------------------------
@@ -67,8 +60,6 @@ Output:
 ⚠️ [PERFORMANCE] Spike detected!
 ❌ [DATA] Save failed: UserId=1213121312
 
-
-==============================
 🧩 Feed System (Floating Messages)
 ==============================
 
@@ -83,22 +74,19 @@ Output (on screen):
 🟦 Player — bottom center  
 🟨 Player 3 — bottom center
 
-
 Feed Anchors
 -------------
-DebugMaster.Feed("Player Die1", LogColor.Blue, FeedAnchor.TopLeft);
-DebugMaster.Feed("Player Die2", LogColor.Yellow, FeedAnchor.TopLeft);
-DebugMaster.Feed("Player Life2", LogColor.Cyan, FeedAnchor.MiddleCenter);
-DebugMaster.Feed("Player Life3", LogColor.White, FeedAnchor.MiddleCenter);
+DebugMaster.Feed("Enemy 1 Spawn", LogColor.Blue, FeedAnchor.TopLeft);
+DebugMaster.Feed("Enemy 2 Spawn", LogColor.Yellow, FeedAnchor.TopLeft);
+DebugMaster.Feed("Scene Loaded ", LogColor.Cyan, FeedAnchor.MiddleCenter);
+DebugMaster.Feed("Player Die", LogColor.White, FeedAnchor.MiddleCenter);
 
 Output (on screen):
-🟦 Player Die1 — top left  
-🟨 Player Die2 — top left  
-🟦 Player Life2 — middle center  
-⚪ Player Life3 — middle center
+🟦 Enemy 1 Spawn — top left  
+🟨 Enemy 2 Spawn — top left  
+🟦 Scene Loaded — middle center  
+⚪ Player Die — middle center
 
-
-==============================
 🧠 Debug HUD (Live Variables)
 ==============================
 
@@ -109,7 +97,6 @@ HP: 100
 Score: 5420  
 State: Idle
 
-
 Real-time HUD Update
 ---------------------
 DebugMaster.DebugHUD(("HP", 100), ("Score", Time.time), ("State", "Idle"));
@@ -119,20 +106,44 @@ HP: 100
 Score: 42.15  
 State: Idle
 
-
-==============================
 🎨 Style & Color Combinations
 ==============================
 
-DebugMaster.Log("Test Bold", LogColor.Red, LogStyle.Bold);
-DebugMaster.Log("Test Italic", LogColor.Green, LogStyle.Italic);
-DebugMaster.Log("Test Strikethrough", LogColor.Blue, LogStyle.Strikethrough);
-DebugMaster.Log("Test Underline", LogColor.Magenta, LogStyle.Underline);
-DebugMaster.Log("Test BoldItalic", LogColor.Cyan, LogStyle.BoldItalic);
-
+DebugMaster.Log("Normal Log: Player joined the lobby. ID = " + 1 + " Ping = " + 32f);
+---------------------
+DebugMaster.Log("Red Log: Connection timeout detected. Retries = " + 3 + " Delay = " + 2.5f, LogColor.Red);
+---------------------
+DebugMaster.Log("Blue Log: Fetching leaderboard data... Rank = " + 12 + " Score = " + 1420f, LogColor.Blue);
+---------------------
+DebugMaster.Log("Green Log: Player HP restored. Amount = " + 25 + " Time = " + 10.2f, LogColor.Green);
+---------------------
+DebugMaster.Log("Magenta Log: Achievement unlocked! Code = " + 101 + " Reward = " + 50f, LogColor.Magenta);
+---------------------
+DebugMaster.Log("Yellow Log: Loading assets... Progress = " + 87 + "% Time = " + 4.3f, LogColor.Yellow);
+---------------------
+DebugMaster.Log("Cyan Log: Session initialized successfully. PlayerID = " + 5 + " Latency = " + 15.7f, LogColor.Cyan);
+---------------------
+DebugMaster.Log("Bold Log: Player leveled up! Level = " + 2 + " XP = " + 350f, LogColor.Red, LogStyle.Bold);
+---------------------
+DebugMaster.Log("Italic Log: Quest in progress. Step = " + 3 + " Distance = " + 42.5f, LogColor.Green, LogStyle.Italic);
+---------------------
+DebugMaster.Log("Strikethrough Log: Deprecated API used. Version = " + 1 + " Delay = " + 0.8f, LogColor.Blue, LogStyle.Strikethrough);
+---------------------
+DebugMaster.Log("Underline Log: UI Element hovered. ElementID = " + 45 + " Duration = " + 1.2f, LogColor.Magenta, LogStyle.Underline);
+---------------------
+DebugMaster.Log("BoldItalic Log: Critical event triggered! Code = " + 9001 + " Time = " + 5.6f, LogColor.Cyan, LogStyle.BoldItalic);
+---------------------
 Output:
-[LOG] Test Bold (Red, Bold)  
-[LOG] Test Italic (Green, Italic)  
-[LOG] Test Strikethrough (Blue, Strikethrough)  
-[LOG] Test Underline (Magenta, Underline)  
-[LOG] Test BoldItalic (Cyan, BoldItalic)
+[LOG] Normal Log: Player joined the lobby. ID = 1 Ping = 32.0  
+[LOG] Red Log: Connection timeout detected. Retries = 3 Delay = 2.5 (Red)  
+[LOG] Blue Log: Fetching leaderboard data... Rank = 12 Score = 1420.0 (Blue)  
+[LOG] Green Log: Player HP restored. Amount = 25 Time = 10.2 (Green)  
+[LOG] Magenta Log: Achievement unlocked! Code = 101 Reward = 50.0 (Magenta)  
+[LOG] Yellow Log: Loading assets... Progress = 87% Time = 4.3 (Yellow)  
+[LOG] Cyan Log: Session initialized successfully. PlayerID = 5 Latency = 15.7 (Cyan)  
+
+[LOG] Bold Log: Player leveled up! Level = 2 XP = 350.0 (Red, Bold)  
+[LOG] Italic Log: Quest in progress. Step = 3 Distance = 42.5 (Green, Italic)  
+[LOG] Strikethrough Log: Deprecated API used. Version = 1 Delay = 0.8 (Blue, Strikethrough)  
+[LOG] Underline Log: UI Element hovered. ElementID = 45 Duration = 1.2 (Magenta, Underline)  
+[LOG] BoldItalic Log: Critical event triggered! Code = 9001 Time = 5.6 (Cyan, BoldItalic)
