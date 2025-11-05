@@ -4,6 +4,31 @@ This is a comprehensive guide to **DebugMaster**, demonstrating advanced logging
 
 ---
 
+# 📘 Integration Guide — Adding DebugMaster to Your Unity Project
+
+This guide explains how to integrate **DebugMaster** into your scripts for runtime text animation and effects.
+
+---
+
+## **🧩 Step 1 — Import the DebugMaster Toolkit**
+
+Before using any DebugMaster feature, ensure the **DebugMaster** package is imported into your Unity project.  
+It should be located under:
+
+
+---
+
+## **📚 Step 2 — Add the Namespace**
+
+To access all TextMaster features and effects inside your C# scripts,  
+include the following namespace at the top of your file:
+
+```csharp
+using DebugMasterTool;
+```
+
+---
+
 ## **🌟 CORE CONSOLE LOGS**
 
 ### Basic Logs with Color and Style
